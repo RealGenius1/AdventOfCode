@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException; 
+import java.util.ArrayList;
+class Main {
+  public static ArrayList<Integer> priorityList(ArrayList<String> list){
+    ArrayList<Integer> data = new ArrayList<Integer>();
+    for (String s : list){
+      if(s.toUpperCase().equals(s)){
+        char c = s.charAt(0);
+        data.add((((int) c) - 64) + 26);
+      }
+      else{
+        char c = s.charAt(0);
+        data.add(((int) c) - 96);
+      }
+    }
+    return data;
+  }
+  public static void main(String[] args) {
+    ArrayList<String> list = Reader.reader();
+    ArrayList <String> repeat = new ArrayList<String>();
+    String check = "";
+      String check2 = "";
+    String check3 = "";
+    boolean badgeTrue = false;
+    for(int i = 0; i < list.size(); i+= 3){
+     check = list.get(i);
+     check2 = list.get(i+1);
+    check3 = list.get(i+2);
+      char[] checkList = check.toCharArray();
+      for(char z : checkList){
+        String z2 = z + "";
+        badgeTrue = ((check2.contains(z2)) && (check3.contains(z2)));
+        if(badgeTrue){
+          repeat.add(z2);
+          break;
+        }
+      }
+      
+    }
+    ArrayList <Integer> priority = priorityList(repeat);
+    int score = 0;
+    for(int i : priority){
+      score += i;
+    }
+    System.out.println(score);
+  }
+}
