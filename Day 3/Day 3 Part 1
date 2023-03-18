@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException; 
+import java.util.ArrayList;
+class Main {
+  public static ArrayList<Integer> priorityList(ArrayList<String> list){
+    ArrayList<Integer> data = new ArrayList<Integer>();
+    for (String s : list){
+      if(s.toUpperCase().equals(s)){
+        char c = s.charAt(0);
+        data.add((((int) c) - 64) + 26);
+      }
+      else{
+        char c = s.charAt(0);
+        data.add(((int) c) - 96);
+      }
+    }
+    return data;
+  }
+  public static void main(String[] args) {
+    ArrayList<String> list = Reader.reader();
+    ArrayList <String> repeat = new ArrayList<String>();
+    String check = "12345678";
+      String check2 = "";
+    int half = 0;
+    for(int i = 0; i < list.size(); i++){
+     check = list.get(i);
+      half = check.length() / 2;
+      check2 = check.substring(half,check.length());
+      check = check.substring(0,half);
+
+      for(int k = 0; k < check.length(); k++){
+        for(int p = 0; p < check2.length(); p++){
+    if(check.substring(k,k+1).equals(check2.substring(p,p+1))){
+        repeat.add(check.substring(k,k+1));
+        k = check.length() + 7;
+        p=check2.length() + 7;
+      }
+        }
+    }
+    }
+    ArrayList <Integer> priority = priorityList(repeat);
+    int score = 0;
+    for(int i : priority){
+      score += i;
+    }
+    System.out.println(score);
+  }
+}
