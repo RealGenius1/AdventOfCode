@@ -1,0 +1,98 @@
+import java.util.Scanner;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException; 
+import java.util.ArrayList;
+class Main {  
+  public static final String[] LIST1 = {"A","B","C"};
+  public static final String[] LIST2 = {"X","Y","Z"};
+  public static ArrayList<String> input1maker(String list){
+    ArrayList <String> input1A = new ArrayList<String>();
+      for(int i = 0; i < list.length(); i++){
+      /*try{
+        input1.add(list.substring(i,i+1)))
+      }
+      catch(StringOutOfBoundsException e){
+        return input1.toArray();
+    }*/
+        for(String s : LIST1){
+        if(list.substring(i,i+1).equals(s)){
+          input1A.add(list.substring(i,i+1));
+        }
+        }
+      }
+    return input1A;
+  }
+  public static ArrayList<String> input2Maker(String list){
+    ArrayList<String> input2 = new ArrayList <String>();
+    for(int i = 0; i < list.length(); i++){
+      for(String s : LIST2)
+      if(list.substring(i,i+1).equals(s)){
+        input2.add(list.substring(i,i+1));
+      }
+    }
+    return input2;
+  }
+  public static int convert(String input){
+    switch(input.toUpperCase()){
+      case "A":
+        return 1;
+      case "B":
+        return 2;
+      case "C":
+        return 3;
+      case "X":
+        return 1;
+      case "Y":
+        return 2;
+      case "Z":
+        return 3;
+      default:
+        throw new ArithmeticException("Invalid Input, what were          you trying? Gun?");
+    }
+  }
+  public static ArrayList<Integer> CONVERT(ArrayList<String> input){
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    for(String s : input){
+      list.add(convert(s));
+    }
+    return list;
+  }
+  /*public static boolean check(String input){
+    input = input.toUpperCase();
+    boolean check = false;
+    for(String s : LIST1){
+      if(input.equals(s)){
+        check = true;
+      }
+    }
+    return check;
+  }*/
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    int score = 0;
+    //A = rock, b = paper, c = scissors
+    //A = 1, B = 2, C = 3
+    //X = 1, B = 2, C = 3
+    //x = rock, y = paper, z = scissors
+    //0 = loss, 3 = draw, 6 = win
+    String list = Reader.reader();
+    ArrayList<String> input1 = input1maker(list);
+    //scan.next();
+    ArrayList<String> input2 = input2Maker(list);
+    
+    ArrayList <Integer> input1Int = CONVERT(input1);
+ArrayList <Integer> input2Int = CONVERT(input2);
+    for(int i = 0; i < input1Int.size(); i++){
+    boolean win = (input2Int.get(i) - 1) == input1Int.get(i) || (input2Int.get(i) == 1 && input1Int.get(i) == 3);
+    if(win){
+      score+=6;
+    } else {
+      if (input1Int.get(i) == input2Int.get(i)){
+        score += 3;
+      }
+    }
+      score += input2Int.get(i);
+    }
+    System.out.println(score);
+  }
+}
