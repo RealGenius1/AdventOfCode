@@ -1,0 +1,63 @@
+import java.util.*;
+import java.io.*;
+class Main {
+  public static void main(String[] args) {
+    ArrayList<String> list = Reader.reader();
+    int howMany = 0;
+    int start1 = 0;
+    int end1 = 0;
+    ArrayList<Integer> job1 = new ArrayList<Integer>();
+    int start2 = 0;
+    int end2 = 0;
+    ArrayList<Integer> job2 = new ArrayList<Integer>();
+    String orders1 = "";
+    String orders2 = "";
+    for(String s : list){
+   //   System.out.println(s);
+      start1 = Integer.parseInt(s.substring(0, s.indexOf("-")));
+   //   System.out.println(start1);
+      s = s.substring(s.indexOf("-") + 1);
+   //  System.out.println(s);
+      end1 = Integer.parseInt(s.substring(0,s.indexOf(",")));
+  //    System.out.println(end1);
+      for(int i = start1; i <= end1; i++){
+        job1.add(i);
+      }
+    //  System.out.println(s);
+      s = s.substring(s.indexOf(",") + 1);
+   //   System.out.println(s);
+start2 = Integer.parseInt(s.substring(0, s.indexOf("-")));
+    //  System.out.println(start2);
+      s = s.substring(s.indexOf("-") + 1);
+     // System.out.println(s);
+      end2 = Integer.parseInt(s.substring(0));
+     // System.out.println(end2);
+      for(int i = start2; i <= end2; i++){
+        job2.add(i);
+      }
+   /*   orders1 = job1.toString();
+      orders1 = orders1.substring(1,orders1.length()-1);
+     // System.out.println(orders1);
+      
+      job1.clear();
+      orders2 = job2.toString();
+      orders2 = orders2.substring(1,orders2.length()-1);
+      //System.out.println(orders2);
+      job2.clear();
+*/
+      if((start2>= start1 && start2 <= end1 && end2 <= end1) || (start1 >= start2 && start1 <= end1 && end1 <= end2)){
+        howMany++;
+      }
+ /*     if(orders1.contains(orders2) || orders2.contains(orders1)){
+        howMany++;
+      }
+      orders1 = ""; orders2 = "";
+    }*/
+      //THAT SYSTEM FAILED
+    
+  }
+    System.out.println(howMany);
+
+  
+  }
+}
