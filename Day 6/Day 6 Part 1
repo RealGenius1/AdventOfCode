@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    String input = Reader.reader(); int start = 0; String char1 = ""; String char2 = ""; String char3 = ""; String char4 = ""; boolean check = false;
+    
+    for(int i = 0; i < input.length(); i++){
+      char1 = input.substring(i,i+1);
+      char2 = input.substring(i+1,i+2);
+      char3 = input.substring(i+2,i+3);
+      char4 = input.substring(i+3,i+4);
+      if(!(char1.equals(char2) || char1.equals(char3) || char1.equals(char4) || char2.equals(char3) || char2.equals(char4) || char3.equals(char4))){
+        check = true;
+        start = i+4;
+        i = input.length() + 1;
+      }
+    }
+    System.out.println(start);
+  }
+}
