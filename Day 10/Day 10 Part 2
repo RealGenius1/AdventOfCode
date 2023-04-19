@@ -1,0 +1,60 @@
+import java.util.*;
+import java.io.*;
+class Main {
+  public static int cycle = 1;
+  public static int sum = 0;
+  public static int x = 1;
+  public static int row = 0;
+  public static int pos = 0;
+  public static String[][] CRT = new String[6][40];
+  
+  public static void addX(int Y){
+    cycle++;
+    drawPixel();
+    x += Y;
+    cycle++;
+  }
+  
+  public static void drawPixel(){
+      try{
+        CRT[row][pos] = "hi";
+      }
+    catch(ArrayIndexOutOfBoundsException c){
+      row++;
+      pos = 0;
+    } finally{
+      if(pos == (x-1) || pos == x || pos == (x+1)){
+        CRT[row][pos] = "#";
+      }
+      else{
+        CRT[row][pos] = ".";
+      }
+      pos++;
+    }
+    
+  }
+
+  
+  public static void main(String[] args) {
+    ArrayList <String> list = Reader.reader();
+
+    
+    for(String s : list){
+      drawPixel();
+      if(s.substring(0,4).toUpperCase().equals("NOOP")){
+        cycle++;
+      }
+      else if(s.substring(0,4).toUpperCase().equals("ADDX")){
+        addX(Integer.parseInt(s.substring(5)));
+      }
+      
+      
+    }
+    for(String[] s : CRT){
+      for(String i : s){
+        System.out.print(i);
+      }
+      System.out.println();
+    }
+      }
+}
