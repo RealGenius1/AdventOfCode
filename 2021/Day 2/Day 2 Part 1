@@ -1,1 +1,26 @@
-
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    ArrayList<String> input = Reader.reader();
+    int xValue = 0;
+    int yValue = 0;
+    int temp = 0;
+    String hold = "";
+    for(String s : input){
+      if(s.contains("forward")){
+        hold = s.substring(8,9);
+        xValue += Integer.parseInt(hold);
+      }
+      else if(s.contains("up")){
+        hold = s.substring(3,4);
+        yValue -= Integer.parseInt(hold);
+      }
+      else if(s.contains("down")){
+        hold = s.substring(5,6);
+        yValue += Integer.parseInt(hold);
+      }
+    }
+    temp = xValue * yValue;
+    System.out.println(temp);
+  }
+}
