@@ -1,0 +1,21 @@
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    ArrayList <Integer> sonar = Reader.reader();
+    int val1 = 0;
+    int val2 = 0;
+    int dec = 0;
+    int inc = 0;
+    for(int i = 0; i < sonar.size() - 3; i++){
+      val1 = sonar.get(i) + sonar.get(i+1) + sonar.get(i+2);
+      val2 = sonar.get(i+1) + sonar.get(i+2) + sonar.get(i+3);
+      if(val1 < val2){
+        inc++;
+      }
+      else if(val1 > val2){
+        dec++;
+      }
+    }
+    System.out.println(inc);
+  }
+}
