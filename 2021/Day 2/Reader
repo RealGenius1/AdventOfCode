@@ -1,21 +1,23 @@
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.*;
-class Main {
-  public static void main(String[] args) {
-    ArrayList <Integer> sonar = Reader.reader();
-    int val1 = 0;
-    int val2 = 0;
-    int dec = 0;
-    int inc = 0;
-    for(int i = 0; i < sonar.size() - 3; i++){
-      val1 = sonar.get(i) + sonar.get(i+1) + sonar.get(i+2);
-      val2 = sonar.get(i+1) + sonar.get(i+2) + sonar.get(i+3);
-      if(val1 < val2){
-        inc++;
+
+public class Reader {
+  public static ArrayList<String> reader() {
+    ArrayList<String> data = new ArrayList<String>();
+    try {
+      File myObj = new File("input.txt");
+      Scanner myReader = new Scanner(myObj);
+      while (myReader.hasNextLine()) {
+        data.add(myReader.nextLine());
+      //  System.out.println(data);
       }
-      else if(val1 > val2){
-        dec++;
-      }
+      myReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
     }
-    System.out.println(inc);
+    return data;
   }
 }
