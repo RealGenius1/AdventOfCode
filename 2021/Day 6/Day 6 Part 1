@@ -1,0 +1,33 @@
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    String data = Reader.reader();
+    ArrayList <Integer> datas = new ArrayList <Integer>();
+    int eggsAdd = 0;
+    int temp = 0;
+    for(int i = 0; i < data.length(); i++){
+      try{
+        datas.add(Integer.parseInt(data.substring(i,i+1)));
+      }
+      catch (NumberFormatException e){
+        
+      }
+    }
+    for(int i = 0; i < 80; i++){
+      for(int k = 0; k < datas.size(); k++){
+        if(datas.get(k) - 1 == -1){
+          datas.set(k,6);
+          eggsAdd++;
+        }
+        else{
+          datas.set(k,datas.get(k) - 1);
+        }
+      }
+      for(int k = 0; k < eggsAdd; k++){
+        datas.add(8);
+      }
+      eggsAdd = 0;
+    }
+    System.out.println(datas.size());
+  }
+}
