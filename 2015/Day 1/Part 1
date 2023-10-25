@@ -1,1 +1,24 @@
-
+import java.io.*;
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    ArrayList <String> input = Reader.reader();
+    ArrayList <Character> list = new ArrayList <Character>();
+    for(String s : input){
+        char[] hold = s.toCharArray();
+      for(char c : hold){
+        list.add(c);
+      }
+      hold = null;
+  }
+  int level = 0;
+    for(Character c : list){
+      if(c.toString().equals("(")){
+      level++;
+      } else if (c.toString().equals(")")){
+      level--;
+    }
+    }
+    System.out.println(level);
+}
+}
