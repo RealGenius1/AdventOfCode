@@ -1,7 +1,6 @@
-package AdventOfCode2024.Day1;
+package src.AdventOfCode2024.Day1;
 
-import Reader.Reader;
-
+import src.Reader.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
