@@ -15,10 +15,14 @@ public class Day2Part2 {
                 if(list.get(i) <= list.get(i+1)){
                     if(removals == 0) {
                         ArrayList<Integer> list2 = (ArrayList<Integer>) list.clone();
+                        ArrayList<Integer> list3 = (ArrayList<Integer>) list.clone();
                         list2.remove(i);
                         list.remove(i + 1);
+                        try {
+                            list3.remove(i - 1);
+                        } catch(IndexOutOfBoundsException c){}
                         removals++;
-                        return isSafe(list) || isSafe(list2);
+                        return isSafe(list) || isSafe(list2) || isSafe(list3);
                     } else {
                         return false;
                     }
@@ -26,10 +30,14 @@ public class Day2Part2 {
                 if(dist > 3) {
                     if(removals == 0) {
                         ArrayList<Integer> list2 = (ArrayList<Integer>) list.clone();
+                        ArrayList<Integer> list3 = (ArrayList<Integer>) list.clone();
                         list2.remove(i);
                         list.remove(i + 1);
+                        try {
+                            list3.remove(i - 1);
+                        } catch(IndexOutOfBoundsException c){}
                         removals++;
-                        return isSafe(list) || isSafe(list2);
+                        return isSafe(list) || isSafe(list2) || isSafe(list3);
                     }else {
                         return false;
                     }
@@ -41,10 +49,14 @@ public class Day2Part2 {
                 if(list.get(i) >= list.get(i+1)){
                     if(removals == 0) {
                         ArrayList<Integer> list2 = (ArrayList<Integer>) list.clone();
+                        ArrayList<Integer> list3 = (ArrayList<Integer>) list.clone();
                         list2.remove(i);
                         list.remove(i + 1);
+                        try {
+                            list3.remove(i - 1);
+                        } catch(IndexOutOfBoundsException c){}
                         removals++;
-                        return isSafe(list) || isSafe(list2);
+                        return isSafe(list) || isSafe(list2) || isSafe(list3);
                     } else {
                         return false;
                     }
@@ -52,10 +64,14 @@ public class Day2Part2 {
                 if(dist > 3) {
                     if(removals == 0) {
                         ArrayList<Integer> list2 = (ArrayList<Integer>) list.clone();
+                        ArrayList<Integer> list3 = (ArrayList<Integer>) list.clone();
                         list2.remove(i);
                         list.remove(i + 1);
+                        try {
+                            list3.remove(i - 1);
+                        } catch(IndexOutOfBoundsException c){}
                         removals++;
-                        return isSafe(list) || isSafe(list2);
+                        return isSafe(list) || isSafe(list2) || isSafe(list3);
                     } else {
                         return false;
                     }
