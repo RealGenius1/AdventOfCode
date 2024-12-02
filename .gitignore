@@ -2,6 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+/src/AdventOfCode2024/Reader/
 
 ### Eclipse ###
 .apt_generated
