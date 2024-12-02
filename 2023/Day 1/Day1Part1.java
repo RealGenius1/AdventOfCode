@@ -1,5 +1,8 @@
+//package AdventOfCode.2023.Day1;
+
+import src.AdventOfCode2024.Reader.Reader;
 import java.util.ArrayList;
-class Main {
+class Day1Part1 {
   public static boolean isNum(char c){
     if(c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9'){
       return true;

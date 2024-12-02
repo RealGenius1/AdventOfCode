@@ -1,6 +1,6 @@
 package src.AdventOfCode2024.Day1;
 
-import src.Reader.Reader;
+import src.AdventOfCode2024.Reader.Reader;
 
 
 import java.util.ArrayList;
