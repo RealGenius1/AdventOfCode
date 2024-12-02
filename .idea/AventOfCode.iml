@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/2021" />
       <excludeFolder url="file://$MODULE_DIR$/2022" />
       <excludeFolder url="file://$MODULE_DIR$/2023" />
+      <excludeFolder url="file://$MODULE_DIR$/src/AdventOfCode2024/Reader" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
