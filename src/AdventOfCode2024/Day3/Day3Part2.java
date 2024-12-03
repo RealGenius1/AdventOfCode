@@ -31,16 +31,10 @@ public class Day3Part2 {
             try {
                 x2 = Integer.valueOf(temp.substring(temp.indexOf(',') + 1, temp.indexOf(')')));
             } catch (NumberFormatException c) {
-                System.out.println("x2 error");
                 continue;
             }
-            temp = temp.replace(Integer.toString(x1), "");
-            temp = temp.replace(Integer.toString(x2), "");
             total += (x2 * x1);
-            x1 = x2 = 0;
-
         }
-
     }
 
     public static void main(String[] args) {

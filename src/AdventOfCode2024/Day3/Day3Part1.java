@@ -26,9 +26,7 @@ public class Day3Part1 {
                 int x2 = 0;
                 try {
                     x1 = Integer.valueOf(temp.substring(temp.indexOf('(') + 1, temp.indexOf(',')));
-                } catch (NumberFormatException c) {
-                    continue;
-                } catch (StringIndexOutOfBoundsException e){
+                } catch (NumberFormatException | StringIndexOutOfBoundsException c) {
                     continue;
                 }
                 try {
@@ -37,14 +35,12 @@ public class Day3Part1 {
                     System.out.println("x2 error");
                     continue;
                 }
-                temp = temp.replace(Integer.toString(x1), "");
-                temp = temp.replace(Integer.toString(x2), "");
                 total += (x2 * x1);
                 x1 = x2 = 0;
 
             }
 
-    }
+        }
         System.out.println(total);
-}
+    }
 }
