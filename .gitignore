@@ -30,3 +30,4 @@ bin/
 .DS_Store
 /src/AdventOfCode2024/Reader/
 /src/AdventOfCode2024/temp/
+/src/AdventOfCode2024/Reader/
