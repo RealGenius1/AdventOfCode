@@ -3,6 +3,7 @@ package src.AdventOfCode2024.Day9;
 import src.AdventOfCode2024.Reader.Reader;
 
 import java.util.ArrayList;
+import java.math.BigInteger;
 
 public class Day9Part1 {
     public static int minIndex(ArrayList<String> str){
@@ -43,23 +44,16 @@ public class Day9Part1 {
             }
             index++;
         }
-        //533947810 -- TOO LOW
-        //3204989205 -- TOO LOW (GREATER THAN JAVA'S MAX INT)
-        int sum = 0;
-        int negs = 0;
+        //This gets really big, so I need python levels of int size
+        BigInteger sum = new BigInteger("0");
         for(int i = 0; i < list.size(); i++){
             if(list.get(i).equals(".")){
                 break;
             }
-            int temp = Integer.parseInt(list.get(i));
-            temp *= i;
-            if(sum > 0 && sum + temp < 0){
-                negs++;
-            }
-            sum+=temp;
+            BigInteger temp = new BigInteger(list.get(i));
+            temp = temp.multiply(BigInteger.valueOf(i));
+            sum = sum.add(temp);
         }
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(sum - Integer.MIN_VALUE);
-        System.out.println(negs);
+        System.out.println(sum);
     }
 }
