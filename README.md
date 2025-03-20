@@ -7,4 +7,4 @@ https://adventofcode.com/
 Most recent years (2024 and onward) are under src because of refactoring from an old system 
 
 Contributors:
-- Spencer Thomas
+- [Spencer Thomas](https://github.com/RealGenius1)
